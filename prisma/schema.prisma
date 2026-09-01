@@ -1,0 +1,135 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String     @id @default(cuid())
+  email         String     @unique
+  displayName   String
+  passwordHash  String
+  role          String     @default("USER")
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  lastLoginAt   DateTime?
+  loginCount    Int        @default(0)
+  isActive      Boolean    @default(true)
+  emailVerifiedAt DateTime?
+
+  authEvents    AuthEvent[]
+  passwordResets PasswordResetToken[]
+  sessions      Session[]
+  adminActions  AdminAction[]
+
+  @@index([email])
+  @@index([role])
+}
+
+model AuthEvent {
+  id                String    @id @default(cuid())
+  userId            String?
+  user              User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  eventType         String
+  success           Boolean
+  createdAt         DateTime  @default(now())
+  ipHash            String?
+  userAgentSummary  String?
+  metadataJson      String?
+
+  @@index([userId])
+  @@index([createdAt])
+  @@index([eventType])
+}
+
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model Session {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sessionData   String
+  expiresAt     DateTime
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model AdminAction {
+  id            String    @id @default(cuid())
+  adminId       String
+  admin         User      @relation(fields: [adminId], references: [id], onDelete: SetNull)
+  actionType    String
+  targetUserId  String?
+  details       String?
+  createdAt     DateTime  @default(now())
+
+  @@index([adminId])
+  @@index([createdAt])
+}
+
+model Landmark {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  kicker      String
+  description String
+  imageKey    String
+  sectionId   String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  sources     LandmarkSource[]
+
+  @@index([slug])
+}
+
+model Source {
+  id            String   @id @default(cuid())
+  url           String   @unique
+  title         String
+  publisher     String?
+  license       String?
+  licenseUrl    String?
+  attributionRequired Boolean @default(false)
+  attributionText String?
+  verifiedAt    DateTime?
+  createdAt     DateTime @default(now())
+
+  landmarks     LandmarkSource[]
+
+  @@index([url])
+}
+
+model LandmarkSource {
+  id          String    @id @default(cuid())
+  landmarkId  String
+  landmark    Landmark  @relation(fields: [landmarkId], references: [id], onDelete: Cascade)
+  sourceId    String
+  source      Source    @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+  notes       String?
+  createdAt   DateTime  @default(now())
+
+  @@unique([landmarkId, sourceId])
+  @@index([landmarkId])
+  @@index([sourceId])
+}

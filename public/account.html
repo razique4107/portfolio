@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Settings — Karachi</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+  <main class="site-shell">
+    <header class="site-header">
+      <div class="header-left">
+        <a href="/" class="site-logo">KARACHI, PAKISTAN</a>
+      </div>
+      <div class="header-right">
+        <a href="/admin" id="adminPanelBtn" class="auth-button" style="display: none; border-color: var(--karachi-gold); color: var(--karachi-gold);">ADMIN</a>
+        <a href="/" class="auth-button">HOME</a>
+        <button id="logoutBtn" class="auth-button">LOGOUT</button>
+      </div>
+    </header>
+
+    <div class="legal-content">
+      <h1>Account Overview</h1>
+      <p>Manage your account settings and authentication preferences.</p>
+
+      <h2>Profile Information</h2>
+      <div id="profile" class="profile-card">
+        <div class="profile-row"><strong>Email:</strong> <span id="profileEmail">-</span></div>
+        <div class="profile-row"><strong>Display Name:</strong> <span id="profileName">-</span></div>
+        <div class="profile-row"><strong>Role:</strong> <span id="profileRole">-</span></div>
+        <div class="profile-row"><strong>Account Created:</strong> <span id="profileCreated">-</span></div>
+        <div class="profile-row"><strong>Last Login:</strong> <span id="profileLastLogin">-</span></div>
+        <div class="profile-row"><strong>Login Count:</strong> <span id="profileLoginCount">-</span></div>
+      </div>
+
+      <h2>Change Password</h2>
+      <form id="passwordForm" class="auth-form-panel">
+        <label for="currentPassword">Current Password</label>
+        <input type="password" id="currentPassword" name="currentPassword" required autocomplete="current-password">
+
+        <label for="newPassword">New Password</label>
+        <input type="password" id="newPassword" name="newPassword" required autocomplete="new-password" placeholder="At least 8 chars, uppercase, lowercase, number">
+
+        <label for="confirmPassword">Confirm New Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required autocomplete="new-password">
+
+        <button type="submit" class="btn-primary">Update Password</button>
+        <div id="passwordMessage" class="error-message"></div>
+      </form>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <p>© 2026 Karachi — City of Light.</p>
+        <nav class="footer-nav">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/sources">Sources</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/js/account.js" defer></script>
+</body>
+</html>

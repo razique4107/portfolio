@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(gh repo clone nextlevelbuilder/ui-ux-pro-max-skill \"$env:USERPROFILE\\\\.claude\\\\skills\\\\ui-ux-pro-max-skill\")"
+    ]
+  }
+}

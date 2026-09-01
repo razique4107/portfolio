@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Karachi</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+  <main class="site-shell">
+    <header class="site-header">
+      <div class="header-left">
+        <a href="/" class="site-logo">KARACHI, PAKISTAN</a>
+      </div>
+      <div class="header-right">
+        <a href="/account" class="auth-button">ACCOUNT</a>
+        <a href="/" class="auth-button">HOME</a>
+        <button id="logoutBtn" class="auth-button">LOGOUT</button>
+      </div>
+    </header>
+
+    <div class="legal-content" id="adminContainer">
+      <h1>Admin Dashboard</h1>
+      <p>System metrics, user directory, and security audit log.</p>
+
+      <h2>System Overview</h2>
+      <div id="overview" class="admin-overview-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Users</div>
+          <div id="totalUsers" class="stat-val">-</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Active Accounts</div>
+          <div id="activeUsers" class="stat-val">-</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Successful Logins (30d)</div>
+          <div id="successLogins" class="stat-val">-</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Failed Logins (30d)</div>
+          <div id="failedLogins" class="stat-val stat-danger">-</div>
+        </div>
+      </div>
+
+      <h2>User Directory</h2>
+      <div class="table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Display Name</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Last Login</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <tr><td colspan="6" style="text-align: center; padding: 24px;">Loading user accounts...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Authentication & Security Audit Events</h2>
+      <div id="eventsList" class="events-container">
+        <!-- Populated by admin.js -->
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <p>© 2026 Karachi — City of Light. Administrative Management Console.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/js/admin.js" defer></script>
+</body>
+</html>

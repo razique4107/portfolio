@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Karachi — City of Light. An editorial cinematic journey through Karachi's most iconic landmarks and architectural heritage.">
+  <meta property="og:title" content="Karachi — City of Light">
+  <meta property="og:description" content="An editorial cinematic scroll experience exploring the architecture, heritage, and coast of Karachi, Pakistan.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#07151c">
+  <title>Karachi — City of Light</title>
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="font" href="https://dcym8fthxf5uu.cloudfront.net/fonts/247a073c-29f5-4a89-aa3a-741020f346fc/OggText-Medium.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <a href="#stage" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress-bar" id="scrollProgress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="cinema">
+    <!-- HEADER -->
+    <header class="site-header" id="header">
+      <div class="header-left">
+        <a href="#cinema" class="site-logo" aria-label="Karachi Home">KARACHI, PAKISTAN</a>
+      </div>
+
+      <nav class="site-nav" id="siteNav" aria-label="Primary Navigation">
+        <a href="#cinema" class="nav-link active" data-target="0">INTRO</a>
+        <a href="#mazar" class="nav-link" data-target="800">MAZAR</a>
+        <a href="#heritage" class="nav-link" data-target="1700">HERITAGE</a>
+        <a href="#coast" class="nav-link" data-target="3600">COAST</a>
+        <a href="#sights" class="nav-link" data-target="4400">SIGHTS</a>
+      </nav>
+
+      <div class="header-right">
+        <button class="lang-toggle" id="langToggle" aria-label="Language Selector">EN</button>
+        <div id="authNavContainer" class="auth-nav-container">
+          <a href="/login" class="auth-button" id="authButton">LOGIN</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- CINEMATIC SCROLL CONTAINER -->
+    <div class="cinema-scroll" id="cinemaScroll">
+      <div class="stage" id="stage" role="main" aria-label="Karachi Landmark Cinematic Scenes">
+        <div class="atmosphere" aria-hidden="true"></div>
+
+        <!-- SCENE 1: MAZAR HERO (0 - 650px) -->
+        <section class="scene scene-mazar active" id="scene-mazar" role="region" aria-label="Karachi Hero">
+          <img class="scene-media mazar-media" data-landmark="mazarHero" src="/assets/images/mazar-hero.jpg" alt="Mazar-e-Quaid in Karachi viewed from the front" loading="eager" decoding="async">
+          <div class="scene-overlay" aria-hidden="true"></div>
+          <div class="scene-content hero-content">
+            <h1 class="hero-title">KARACHI</h1>
+            <p class="hero-intro">White marble, ocean air, historic streets, and a city that never seems to slow down—Karachi is made for late light, long drives, and unforgettable evenings.</p>
+            <div class="hero-pills" role="group" aria-label="Quick Navigation">
+              <a href="#mazar" class="pill" data-target="800">MAZAR-E-QUAID</a>
+              <a href="#coast" class="pill" data-target="3600">ARABIAN SEA</a>
+              <a href="#heritage" class="pill" data-target="1700">KARACHI HERITAGE</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCENE 2: MAZAR STORY (560 - 1400px) -->
+        <section class="scene scene-story" id="scene-story" role="region" aria-label="Mazar-e-Quaid Story">
+          <img class="scene-media mazar-media" src="/assets/images/mazar-hero.jpg" alt="Mazar-e-Quaid atmosphere" style="filter: brightness(0.35) blur(2px);" loading="lazy" decoding="async">
+          <div class="scene-overlay" aria-hidden="true"></div>
+          <div class="scene-content story-panel" id="mazar">
+            <span class="story-kicker">National Monument</span>
+            <h2 class="story-title">The Mazar is Karachi's quiet landmark.</h2>
+            <p class="story-body">Mazar-e-Quaid stands in the heart of the metropolis, its white marble geometry creating a calm visual counterpoint to the movement of the city around it.</p>
+            <ul class="story-facts">
+              <li><strong>Completed in 1971:</strong> Designed by architect Yahya Merchant, the monumental mausoleum serves as the final resting place of Quaid-e-Azam Muhammad Ali Jinnah.</li>
+              <li><strong>Pure White Marble:</strong> Crafted from brilliant white marble arched over a 54-square-meter platform, the structure reflects coastal sunlight throughout the day.</li>
+            </ul>
+            <button class="heritage-button" id="heritageNotesBtn" aria-haspopup="dialog">Open Karachi heritage notes ↗</button>
+          </div>
+        </section>
+
+        <!-- SCENE 3: MOHATTA PALACE (1300 - 2100px) -->
+        <section class="scene scene-mohatta" id="scene-mohatta" role="region" aria-label="Mohatta Palace Heritage">
+          <img class="scene-media mohatta-media" data-landmark="mohattaPalace" src="/assets/images/mohatta-palace.jpg" alt="Mohatta Palace viewed from the front with fountain in Karachi" loading="lazy" decoding="async">
+          <div class="scene-overlay" aria-hidden="true"></div>
+          <div class="scene-content editorial-card" id="heritage">
+            <span class="editorial-kicker">Clifton Heritage</span>
+            <h2 class="editorial-title">Mohatta Palace</h2>
+            <p class="editorial-body">An ornate 1927 summer residence built with pink Jodhpur and yellow Gizri stone, Mohatta Palace stands as a sanctuary of art, culture, and architecture in seaside Clifton.</p>
+            <div class="editorial-meta">
+              <span>Location: Clifton, Karachi</span>
+              <span>Style: Indo-Saracenic Revival</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCENE 4: FRERE HALL (2000 - 2800px) -->
+        <section class="scene scene-frere" id="scene-frere" role="region" aria-label="Frere Hall Colonial Heritage">
+          <img class="scene-media frere-media" data-landmark="frereHall" src="/assets/images/frere-hall.jpg" alt="Beautiful view of Frere Hall surrounded by gardens in Karachi" loading="lazy" decoding="async">
+          <div class="scene-overlay" aria-hidden="true"></div>
+          <div class="scene-content editorial-card">
+            <span class="editorial-kicker">Colonial Heritage</span>
+            <h2 class="editorial-title">Frere Hall</h2>
+            <p class="editorial-body">Completed in 1865 in Venetian Gothic style and set within the sprawling Bagh-e-Jinnah gardens, Frere Hall houses the iconic ceiling mural painted by celebrated artist Sadequain.</p>
+            <div class="editorial-meta">
+              <span>Location: Saddar Civil Lines</span>
+              <span>Style: Venetian-Gothic</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCENE 5: EMPRESS MARKET (2700 - 3500px) -->
+        <section class="scene scene-empress" id="scene-empress" role="region" aria-label="Empress Market Historic Commerce">
+          <img class="scene-media empress-media" data-landmark="empressMarket" src="/assets/images/empress-market.jpg" alt="Empress Market with distinctive clock tower facade in Saddar Karachi" loading="lazy" decoding="async">
+          <div class="scene-overlay" aria-hidden="true"></div>
+          <div class="scene-content editorial-card">
+            <span class="editorial-kicker">Historic Saddar</span>
+            <h2 class="editorial-title">Empress Market</h2>
+            <p class="editorial-body">Constructed between 1884 and 1889 with its distinctive 140-foot clock tower, Empress Market is the pulsing historical heart of trade, spices, and urban life in Saddar.</p>
+            <div class="editorial-meta">
+              <span>Location: Saddar Bazaar</span>
+              <span>Height: 140 ft Clock Tower</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCENE 6: CLIFTON BEACH / ARABIAN SEA (3400 - 4200px) -->
+        <section class="scene scene-clifton" id="scene-clifton" role="region" aria-label="Clifton Beach and Arabian Sea">
+          <img class="scene-media clifton-media" data-landmark="cliftonBeach" src="/assets/images/clifton-beach.jpg" alt="Clifton Beach where Karachi meets the Arabian Sea" loading="lazy" decoding="async">
+          <div class="scene-overlay" aria-hidden="true"></div>
+          <div class="scene-content editorial-card" id="coast">
+            <span class="editorial-kicker">Arabian Sea Coast</span>
+            <h2 class="editorial-title">Clifton Beach & Arabian Sea</h2>
+            <p class="editorial-body">Where the sprawling city meets the open tide. From golden afternoon horizons to late-night sea breezes along Sea View, the Arabian Sea shapes Karachi's boundless spirit.</p>
+            <div class="editorial-meta">
+              <span>Coastline: Arabian Sea</span>
+              <span>Vibe: Open Horizon & Sea Air</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCENE 7: SIGHTS SLIDER (4100 - 4900px) -->
+        <section class="scene scene-sights" id="scene-sights" role="region" aria-label="Karachi Sights Slider">
+          <div class="scene-overlay" aria-hidden="true"></div>
+          <div class="scene-content sights-content" id="sights">
+            <div class="sights-header">
+              <span class="sights-kicker">Landmark Explorer</span>
+              <h2 class="sights-title">Karachi Sights</h2>
+              <p class="sights-subtitle">Explore key destinations across the city. Select any card to travel directly to its scene.</p>
+            </div>
+
+            <div class="sights-slider-wrapper">
+              <div class="sights-slider" id="sightsSlider" role="region" aria-label="Karachi Landmarks Carousel">
+                <div class="slider-track" id="sliderTrack">
+                  <!-- Populated by slider.js with real photographs & links -->
+                </div>
+              </div>
+              <div class="slider-controls" aria-label="Carousel Controls">
+                <button class="slider-button slider-prev" id="sliderPrev" aria-label="Previous Landmark">←</button>
+                <button class="slider-button slider-next" id="sliderNext" aria-label="Next Landmark">→</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCENE 8: SOURCES & CREDITS (4800 - 5400px+) -->
+        <section class="scene scene-sources" id="scene-sources" role="region" aria-label="Verified Research Sources and Credits">
+          <div class="scene-overlay" aria-hidden="true"></div>
+          <div class="scene-content sources-content" id="sources">
+            <span class="sources-kicker">Public Archives & Verification</span>
+            <h2 class="sources-title">Sources & Attribution</h2>
+            <p class="sources-intro">This editorial website is grounded in verified public research and Creative Commons media archives.</p>
+            <div id="sourcesList" class="sources-list" aria-live="polite">
+              <!-- Populated dynamically from /api/content/sources -->
+            </div>
+            <div class="sources-footer-action">
+              <a href="/sources" class="source-link-btn">View Full Sources & Licensing Documentation ↗</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- HERITAGE MODAL DRAWER -->
+    <div class="modal" id="heritageModal" role="dialog" aria-labelledby="heritageModalTitle" aria-modal="true" aria-hidden="true">
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div class="modal-content" role="document">
+        <button class="modal-close" id="heritageModalClose" aria-label="Close heritage notes">✕</button>
+        <span class="modal-kicker">Archival Briefing</span>
+        <h3 id="heritageModalTitle">Karachi Heritage Notes</h3>
+        <div class="modal-body">
+          <article class="heritage-item">
+            <h4>Mazar-e-Quaid</h4>
+            <p>Constructed between 1960 and 1971 in white marble from a design by Yahya Merchant. The sanctuary houses the tomb of Pakistan's founder and serves as the architectural heart of the city.</p>
+          </article>
+          <article class="heritage-item">
+            <h4>Mohatta Palace</h4>
+            <p>Commissioned in 1927 by Shivratan Chandraratan Mohatta as a summer residence in Clifton. Designed by Agha Ahmed Hussain in Indo-Saracenic revivalist style using Gizri and Jodhpur stone.</p>
+          </article>
+          <article class="heritage-item">
+            <h4>Frere Hall</h4>
+            <p>Inaugurated in 1865 in honor of Sir Bartle Frere. Designed by Henry Saint Clair Wilkins in Venetian Gothic style, featuring local yellow Gizri stone and Sadequain's legendary mural <em>Arz-o-Samawat</em> (Heaven and Earth).</p>
+          </article>
+          <article class="heritage-item">
+            <h4>Empress Market</h4>
+            <p>Opened in 1889 during Queen Victoria's Golden Jubilee era. Designed by James Strachan with a prominent 140-foot clock tower, anchoring the Saddar trade district.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <p class="footer-copy">© 2026 Karachi — City of Light. Curated with respect for heritage and architecture.</p>
+        <nav class="footer-nav" aria-label="Footer Links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/sources">Sources & Credits</a>
+          <a href="/login">Account</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
